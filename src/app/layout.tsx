@@ -1,17 +1,32 @@
-// app/layout.tsx
-import React from 'react';
-import Navbar from '../components/Navbar'; // Corrected import path
-import './globals.css'; // Import your global styles
+// src/app/layout.tsx
 
-const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+import { Metadata } from "next";
+import "./globals.css";
+import Navbar from "@/components/NavBar";
+import AuthProvider from "../components/AuthProvider";
+
+export const metadata: Metadata = {
+  title: "SnapZoška",
+  description: "Created by students of SPŠE Zochova 9, Bratislava",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en">
+    <html lang="sk">
       <body>
-        <Navbar /> {/* Include the Navbar here */}
-        <main>{children}</main>
+        <AuthProvider>
+          <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+            <main style={{ flexGrow: 1 }}>
+              {children}
+            </main>
+          </div>
+          <Navbar /> {/* Moved Navbar outside of the main container */}
+        </AuthProvider>
       </body>
     </html>
   );
-};
-
-export default RootLayout;
+}

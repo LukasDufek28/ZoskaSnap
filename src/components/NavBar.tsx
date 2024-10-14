@@ -1,4 +1,4 @@
-// components/Navbar.tsx
+// components/NavBar.tsx
 import React from 'react';
 import Link from 'next/link';
 import { BottomNavigation, BottomNavigationAction } from '@mui/material';
