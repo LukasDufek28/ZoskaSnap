@@ -1,25 +1,16 @@
-// src/app/(home)/page.tsx
+// src/app/page.tsx
 
-"use client"; // This makes the component a Client Component
-
-import { useSession } from "next-auth/react";
-import NonAuthHomeView from "@/sections/NonAuthHomeView";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/authOptions";
 import AuthHomeView from "@/sections/AuthHomeView";
+import NonAuthHomeView from "@/sections/NonAuthHomeView";
 
 export const metadata = { title: "Domov | ZoškaSnap" };
 
-export default function Home() {
-  const { data: session } = useSession();
-  let content;
+export default async function HomePage() {
+  // Fetch session on the server
+  const session = await getServerSession(authOptions);
 
-  // Use if statement to decide which component to render
-  if (session) {
-    content = <AuthHomeView />;
-  } else {
-    content = <NonAuthHomeView />;
-  }
-
-  return content;
+  // Conditionally render authenticated or non-authenticated home view
+  return session ? <AuthHomeView session={session} /> : <NonAuthHomeView />;
 }
-
-

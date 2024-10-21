@@ -1,15 +1,16 @@
 // src/sections/NonAuthHomeView.tsx
 
-
-import Typography from "@mui/material/Typography";
-
-export const metadata = { title: "Domov | ZoškaSnap" };
+import { Container, Typography } from "@mui/material";
 
 export default function NonAuthHomeView() {
-  
   return (
-    
-      <Typography> Prihlaste sa! </Typography>
-
+    <Container>
+      <Typography variant="body1" sx={{ mt: 2 }}>
+        Domovská stránka - NEprihlásený user
+      </Typography>
+      <Typography>
+        Registrujte sa, aby ste mohli pridať príspevky a zobraziť profil.
+      </Typography>
+    </Container>
   );
 }
