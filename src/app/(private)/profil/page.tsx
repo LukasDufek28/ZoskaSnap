@@ -1,4 +1,4 @@
-// src/app/profil/page.tsx
+// src/app/(private)/profil/page.tsx
 
 
 import Typography from "@mui/material/Typography";

@@ -1,9 +1,10 @@
 // src/app/layout.tsx
-
 import { Metadata } from "next";
 import "./globals.css";
+
+import ThemeProvider from "@/providers/ThemeProvider";  // Make sure to import ThemeProvider here
+import AuthProvider from "../providers/AuthProvider";
 import Navbar from "../components/NavBar";
-import AuthProvider from "../components/AuthProvider";
 
 export const metadata: Metadata = {
   title: "SnapZoška",
@@ -12,19 +13,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="sk">
       <body>
         <AuthProvider>
-          <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-            <main style={{ flexGrow: 1 }}>
-              {children}
-            </main>
-          </div>
-          <Navbar /> 
+          <ThemeProvider> {/* This should wrap the entire app */}
+            <main>{children}</main> {/* All the children will have access to the theme */}
+            <Navbar />
+          </ThemeProvider>
         </AuthProvider>
       </body>
     </html>

@@ -1,0 +1,17 @@
+/* globals.css */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  /* Update variables based on theme */
+  :root {
+    --background-color: white;
+    --text-color: black;
+  }
+  
+  [data-theme='dark'] {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+  }
+  
