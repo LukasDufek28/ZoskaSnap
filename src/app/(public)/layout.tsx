@@ -14,7 +14,9 @@ export default function PublicLayout({ children }: PublicLayoutProps) {
   return (
     <html lang="en">
       <body>
-        <main>{children}</main>
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );

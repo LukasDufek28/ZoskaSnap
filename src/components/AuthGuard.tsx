@@ -3,7 +3,7 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { ReactNode } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import { useRouter } from "next/navigation";
@@ -15,6 +15,17 @@ interface AuthGuardProps {
 export default function AuthGuard({ children }: AuthGuardProps) {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // Set mounted to true after the component is mounted
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    // Prevent SSR mismatch by returning null before mount
+    return null;
+  }
 
   if (status === "loading") {
     return (
