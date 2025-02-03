@@ -1,23 +1,13 @@
 // src/app/(public)/layout.tsx
 
-import { ReactNode } from "react";
-
-interface PublicLayoutProps {
-  children: ReactNode;
-}
-
 export const metadata = {
   title: "Public Pages | ZoškaSnap",
 };
 
-export default function PublicLayout({ children }: PublicLayoutProps) {
+export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>
-        <main>
-          {children}
-        </main>
-      </body>
-    </html>
+    <main> {/* ✅ Ensure it's present in both SSR and Client */}
+      {children}
+    </main>
   );
 }

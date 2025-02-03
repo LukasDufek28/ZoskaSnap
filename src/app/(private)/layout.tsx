@@ -11,12 +11,8 @@ export const metadata = { title: "Private Pages | ZoškaSnap" };
 
 export default function PrivateLayout({ children }: PrivateLayoutProps) {
   return (
-    <html lang="en">
-      <body>
         <AuthGuard>
           <main>{children}</main>
         </AuthGuard>
-      </body>
-    </html>
   );
 }

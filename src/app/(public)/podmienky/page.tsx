@@ -1,8 +1,9 @@
 // src/app/podmienky/page.tsx
 
-
+import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import Link from 'next/link';
 
 export const metadata = { title: "Podmienky | ZoškaSnap" };
 
@@ -18,7 +19,7 @@ export default function TermsConditions() {
         1. Úvod
       </Typography>
       <Typography paragraph>
-        Tieto podmienky používania (ďalej len "Podmienky") upravujú prístup a používanie webovej stránky ZoškaSnap (ďalej len "Služba"). Používaním Služby súhlasíte s týmito Podmienkami.
+        Tieto podmienky používania (ďalej len Podmienky) upravujú prístup a používanie webovej stránky ZoškaSnap (ďalej len Služba). Používaním Služby súhlasíte s týmito Podmienkami.
       </Typography>
 
       <Typography variant="h6" sx={{ mb: 1 }}>
@@ -32,7 +33,7 @@ export default function TermsConditions() {
         3. Prístup k službe
       </Typography>
       <Typography paragraph>
-        Služba je poskytovaná "tak, ako je" a môže byť upravovaná alebo prerušená kedykoľvek. Prevádzkovateľ si vyhradzuje právo zmeniť, upravit alebo odstrániť obsah na stránke.
+        Služba je poskytovaná tak, ako je a môže byť upravovaná alebo prerušená kedykoľvek. Prevádzkovateľ si vyhradzuje právo zmeniť, upravit alebo odstrániť obsah na stránke.
       </Typography>
 
       <Typography variant="h6" sx={{ mb: 1 }}>
@@ -62,6 +63,24 @@ export default function TermsConditions() {
       <Typography paragraph>
         Pre akékoľvek otázky týkajúce sa týchto Podmienok nás kontaktujte na emailovej adrese [your contact email].
       </Typography>
+
+      <Link href="/auth/registracia" passHref>
+      <Button
+      variant="outlined"
+      fullWidth
+      sx={{
+      mb: 2,
+      bgcolor: "#d32f2f",
+      color: "white",
+      "&:hover": {
+        bgcolor: "#c2185b",  // Hover effect for Google button
+      },
+      }}
+  >
+    Back to registration
+  </Button>
+</Link>
     </Container>
+
   );
 }

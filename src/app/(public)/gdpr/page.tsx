@@ -147,7 +147,7 @@ export default function GDPR() {
       },
       }}
   >
-    Back to homepage
+    Back to registration
   </Button>
 </Link>
     </Container>
